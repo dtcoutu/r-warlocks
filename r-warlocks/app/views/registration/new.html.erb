@@ -1,0 +1,10 @@
+<h1>Register User</h1>
+
+<%= error_messages_for 'new' %>
+
+<% form_tag :action => 'new' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Register" %>
+<% end %>
+
+<%= link_to 'Back', :action => 'show' %>
