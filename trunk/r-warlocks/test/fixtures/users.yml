@@ -1,0 +1,5 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+duplicate:
+  userid: duplicate
+  password: passw0rd
