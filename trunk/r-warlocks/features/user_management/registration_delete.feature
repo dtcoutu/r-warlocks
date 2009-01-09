@@ -7,4 +7,4 @@ Feature: User registration deletion
 		Given I am logged in as "testUser"
 		When I delete my account
 		Then my account information will be removed
-		And I will be redirected to a thank you page
+		And I will be directed to the "/registration/show" page

@@ -6,7 +6,7 @@ Feature: User registration
 	Scenario: Register a unique userid
 		Given I am logged out
 		When I create a new account
-		Then I will be directed to the start page
+		Then I will be directed to the "/player/list" page
 	
 	Scenario: Attempt to register a non-unique userid
 		Given I am logged out
