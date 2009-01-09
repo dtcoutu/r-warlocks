@@ -10,5 +10,6 @@ Feature: User registration
 	
 	Scenario: Attempt to register a non-unique userid
 		Given I am logged out
+		And a registered user "duplicate" exists
 		When I create a duplicate account
 		Then I will be shown an error
