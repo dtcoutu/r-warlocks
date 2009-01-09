@@ -1,9 +1,11 @@
-# Need to pull higher
 Given /^I am logged out$/ do
 end
 
-Given /^I am on the start page$/ do
-	visits "/registration/show"
+Given /^I am logged in as "(.*)"$/ do |user|
+	visits "/registration/new"
+	fill_in :userid, :with => user
+	fill_in :password, :with => 'passw0rd'
+	click_button "Register"
 end
 
 When /^I click the login link$/ do
@@ -22,16 +24,6 @@ When /^I enter an incorrect password$/ do
 	fill_in :userid, :with => 'duplicate'
 	fill_in :password, :with => 'notright'
 	click_button 'Login'
-end
-
-# Need to abstract and pull higher
-Then /^I will be directed to the start page$/ do
-	request.path.to_s.should eql('/player/list')
-end
-
-# Need to abstract and pull higher - page_confirmation_steps.rb
-Then /^I will stay on the login page$/ do
-	request.path.to_s.should eql('/registration/login')
 end
 
 Then /^be presented with an error message$/ do

@@ -4,16 +4,16 @@ Feature: User authentication
 	So that I can select/create Warlocks and play the game
 	
 	Scenario: User Login
-		Given I am on the start page
+		Given I am on the "/registration/show" page
 		And I am logged out
 		When I click the login link
 		And I login
-		Then I will be directed to the start page
+		Then I will be directed to the "/player/list" page
 	
 	Scenario: User failed login
-		Given I am on the start page
+		Given I am on the "/registration/show" page
 		And I am logged out
 		When I click the login link
 		And I enter an incorrect password
-		Then I will stay on the login page
+		Then I will stay on the "/registration/login" page
 		And be presented with an error message
