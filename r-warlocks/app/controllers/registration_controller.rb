@@ -2,6 +2,8 @@ class RegistrationController < ApplicationController
   def delete
 	@user = session[:user]
 	@user.delete
+	session[:user] = nil
+	redirect_to :action => 'show'
   end
   
   def login
@@ -23,11 +25,15 @@ class RegistrationController < ApplicationController
   def new
     @user = User.new(params[:user])
     if @user.save
+	  session[:user] = @user
       flash[:notice] = 'User was successfully registered.'
       redirect_to :controller => 'player', :action => 'list'
     else
       render :action => 'new'
     end
+  end
+  
+  def show
   end
 
 end

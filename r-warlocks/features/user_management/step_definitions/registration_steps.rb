@@ -1,3 +1,10 @@
+Given /^a registered user "duplicate" exists$/ do
+	visits "/registration/new"
+	fill_in :userid, :with => 'duplicate'
+	fill_in :password, :with => 'passw0rd'
+	click_button "Register"
+end
+
 When /^I create a new account$/ do
 	visits "/registration/new"
 	fill_in :userid, :with => 'newUser'
@@ -6,7 +13,6 @@ When /^I create a new account$/ do
 end
 
 When /^I create a duplicate account$/ do
-	Fixtures.create_fixtures("test/fixtures", "users")
 	visits "/registration/new"
 	fill_in :userid, :with => 'duplicate'
 	fill_in :password, :with => 'passw0rd'
