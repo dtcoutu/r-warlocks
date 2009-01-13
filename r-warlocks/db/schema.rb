@@ -9,11 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081217123352) do
+ActiveRecord::Schema.define(:version => 20090109211518) do
 
   create_table "users", :force => true do |t|
     t.string   "userid",                   :null => false
     t.string   "password",   :limit => 32, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "warlocks", :force => true do |t|
+    t.string   "name",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

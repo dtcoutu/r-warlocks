@@ -1,0 +1,11 @@
+<h1>Create a new Warlock</h1>
+
+<%= error_messages_for 'create' %>
+
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Create" %>
+<% end %>
+
+<%= link_to 'Back', :action => 'list' %>
+

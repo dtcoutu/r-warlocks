@@ -6,5 +6,5 @@ Feature: User registration deletion
 	Scenario: Unregister a userid
 		Given I am logged in as "testUser"
 		When I delete my account
-		Then my account information will be removed
+		Then "testUser" account information will be removed
 		And I will be directed to the "/registration/show" page
