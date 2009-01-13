@@ -1,20 +1,11 @@
-Given /^a registered user "duplicate" exists$/ do
-	visits "/registration/new"
-	fill_in :userid, :with => 'duplicate'
-	fill_in :password, :with => 'passw0rd'
-	click_button "Register"
+Given /^a registered user "(.*)" exists$/ do |userid|
+	user = User.new(:userid => userid, :password => 'passw0rd')
+	user.save
 end
 
-When /^I create a new account$/ do
+When /^I create a new account "(.*)"$/ do |userid|
 	visits "/registration/new"
-	fill_in :userid, :with => 'newUser'
-	fill_in :password, :with => 'passw0rd'
-	click_button "Register"
-end
-
-When /^I create a duplicate account$/ do
-	visits "/registration/new"
-	fill_in :userid, :with => 'duplicate'
+	fill_in :userid, :with => userid
 	fill_in :password, :with => 'passw0rd'
 	click_button "Register"
 end

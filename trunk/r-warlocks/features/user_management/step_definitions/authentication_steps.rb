@@ -1,4 +1,6 @@
-Given /^I am logged out$/ do
+Given /^I am not logged in$/ do
+	assert_nil session[:user]
+	session[:user].should be_nil
 end
 
 Given /^I am logged in as "(.*)"$/ do |user|
@@ -8,14 +10,9 @@ Given /^I am logged in as "(.*)"$/ do |user|
 	click_button "Register"
 end
 
-When /^I click the login link$/ do
-	Fixtures.create_fixtures("test/fixtures", "users")
-	click_link "login"
-end
-
 # Need to pull higher - consider combining with login link...
-When /^I login$/ do
-	fill_in :userid, :with => 'duplicate'
+When /^I login as "(.*)"$/ do |userid|
+	fill_in :userid, :with => userid
 	fill_in :password, :with => 'passw0rd'
 	click_button 'Login'
 end
