@@ -6,6 +6,6 @@ Feature: Show all warlocks for a user
 	Scenario: List all warlocks for a player
 		Given I am logged in as "testUser"
 		And I am on the "/player/list" page
-		And I have "3" warlocks
-		When I click on the "view warlocks" link
+		And I "testUser" has "3" warlocks
+		When I click the "Manage Warlocks" link
 		Then I will be directed to the "/warlock/list" page
