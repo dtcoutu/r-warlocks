@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20090113115027) do
     t.string   "name",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "userid",     :null => false
+    t.integer  "user_id",    :null => false
   end
 
 end
