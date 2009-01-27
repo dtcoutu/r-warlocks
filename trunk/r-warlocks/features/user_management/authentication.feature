@@ -17,4 +17,4 @@ Feature: User authentication
 		When I click the "Login" link
 		And I enter an incorrect password
 		Then I will stay on the "/registration/login" page
-		And be presented with an error message
+		And be shown an error message

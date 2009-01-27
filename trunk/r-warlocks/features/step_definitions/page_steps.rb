@@ -18,3 +18,7 @@ end
 Then /^I will see "(.*)" on the page$/ do |content|
 	request.should have_tag("p", content)
 end
+
+Then /^be shown an error message$/ do
+	response.should have_text(/id="errorExplanation"/)
+end
