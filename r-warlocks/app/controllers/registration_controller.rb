@@ -8,10 +8,10 @@ class RegistrationController < ApplicationController
   
   def login
 	if request.post?
-		@user = User.find_by_userid_and_password(params[:user][:userid], params[:user][:password])
+		@user = User.find_by_username_and_password(params[:user][:username], params[:user][:password])
 		if (@user.nil?)
 			@user = User.new
-			@user.errors.add_to_base("Invalid userid and/or password.")
+			@user.errors.add_to_base("Invalid username and/or password.")
 			render
 		else
 			session[:user] = @user

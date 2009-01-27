@@ -5,7 +5,7 @@ class RegistrationControllerTest < ActionController::TestCase
   def test_new
     num_users = User.count
 
-    post :new, :user => {:userid => "testUser", :password => "passw0rd"}
+    post :new, :user => {:username => "testUser", :password => "passw0rd"}
 
     assert_response :redirect
     assert_redirected_to :controller => 'player', :action => 'list'
