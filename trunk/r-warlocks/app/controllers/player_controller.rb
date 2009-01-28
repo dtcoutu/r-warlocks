@@ -5,7 +5,7 @@ class PlayerController < ApplicationController
 	warlock.user_id = @user.id
     if warlock.save
       flash[:notice] = 'Warlock' + warlock.name + ' was successfully created.'
-      redirect_to :controller => 'player', :action => 'list'
+      redirect_to :action => 'list'
     else
       render :action => 'create'
     end
@@ -13,6 +13,7 @@ class PlayerController < ApplicationController
   
   def list
 	@user = session[:user]
+	@warlocks = @user.warlocks
   end
   
   def manage
