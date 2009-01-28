@@ -4,4 +4,14 @@
 <%= link_to 'Create Warlock', :action => 'create' %>
 <%= link_to 'Manage Warlocks', :action => 'manage' %>
 
+<% if @warlocks != nil %>
+  <div class="warlocks">
+    <% for warlock in @warlocks %>
+	  <div class="warlock-summary">
+		<%= warlock.name %>
+	  </div>
+	<% end %>
+  </div>
+<% end %>
+
 

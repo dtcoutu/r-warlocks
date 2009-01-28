@@ -9,6 +9,7 @@ Feature: Warlock creation
 		When I click the "Create Warlock" link
 		And I create a warlock named "Rasper"
 		Then I will be directed to the "/player/list" page
+		And I will see the warlock "Rasper" listed on the page
 		
 	Scenario: Attempt to create a non-unique warlock
 		Given I am logged in as "testUser"

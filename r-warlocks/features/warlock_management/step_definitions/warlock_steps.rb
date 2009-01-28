@@ -17,3 +17,7 @@ When /^I create a warlock named "(.*)"$/ do |name|
 	fill_in :name, :with => name
 	click_button "Create"
 end
+
+Then /^I will see the warlock "(.*)" listed on the page$/ do |warlock_name|
+	response.should have_tag("div.warlock-summary", :text => "Rasper")
+end
