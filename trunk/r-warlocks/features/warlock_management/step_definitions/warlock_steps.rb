@@ -13,6 +13,12 @@ Given /^a warlock named "(.*)" exists$/ do |warlock_name|
 	warlock.save
 end
 
+Given /^I have selected the warlock "(.*)"$/ do |warlock_name|
+	visits "/player/create"
+	fill_in :name, :with => warlock_name
+	click_button "Create"
+end
+
 When /^I create a warlock named "(.*)"$/ do |name|
 	fill_in :name, :with => name
 	click_button "Create"

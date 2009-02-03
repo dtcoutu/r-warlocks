@@ -1,0 +1,10 @@
+<h1></h1>
+<p></p>
+
+<%= error_messages_for 'create' %>
+
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Create" %>
+<% end %>
+
