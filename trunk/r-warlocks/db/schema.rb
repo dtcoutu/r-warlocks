@@ -17,9 +17,12 @@ ActiveRecord::Schema.define(:version => 20090130034539) do
   end
 
   create_table "matches", :force => true do |t|
+    t.integer  "num_challengers", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "matches", ["num_challengers"], :name => "index_matches_on_num_challengers", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "username",                 :null => false
