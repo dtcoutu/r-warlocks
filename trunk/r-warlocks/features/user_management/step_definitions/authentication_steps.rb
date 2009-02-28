@@ -4,7 +4,7 @@ Given /^I am not logged in$/ do
 end
 
 Given /^I am logged in as "(.*)"$/ do |user|
-	visits "/registration/new"
+	visit "/registration/new"
 	fill_in :username, :with => user
 	fill_in :password, :with => 'passw0rd'
 	click_button "Register"
