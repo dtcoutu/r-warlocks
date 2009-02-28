@@ -12,10 +12,10 @@ Feature: Challenge creation
 #	
 	Scenario: Create an open 2-warlock challenge
 		Given I am logged in as "testUser"
-		And I have selected the warlock "testWarlock" for "testUser"
+		And I have selected the warlock "testWarlock"
 		And I am on the "/challenge/list" page
 		When I click the "Create Challenge" link
 		And I create a challenge for "2" warlocks
 		Then I will be directed to the "/challenge/list" page
-		And I will see an unstarted challenge listed
+		And I will see a challenge waiting for challenger listed
 	
