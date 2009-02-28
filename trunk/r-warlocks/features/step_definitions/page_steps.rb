@@ -1,6 +1,6 @@
 
 Given /^I am on the "(.*)" page$/ do |page|
-	visits page
+	visit page
 end
 
 When /^I click the "(.*)" link$/ do |link|
