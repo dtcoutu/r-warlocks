@@ -1,6 +1,6 @@
 
 When /^I delete my account$/ do
-	visits "/registration/delete"
+	visit "/registration/delete"
 end
 
 Then /^"(.*)" account information will be removed$/ do |username|

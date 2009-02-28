@@ -4,7 +4,7 @@ Given /^a registered user "(.*)" exists$/ do |username|
 end
 
 When /^I create a new account "(.*)"$/ do |username|
-	visits "/registration/new"
+	visit "/registration/new"
 	fill_in :username, :with => username
 	fill_in :password, :with => 'passw0rd'
 	click_button "Register"
