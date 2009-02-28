@@ -10,6 +10,8 @@ class ChallengeController < ApplicationController
   end
 
   def list
+	@warlock = session[:warlock]
+	@pending_challenges = @warlock.matches
   end
 
 end

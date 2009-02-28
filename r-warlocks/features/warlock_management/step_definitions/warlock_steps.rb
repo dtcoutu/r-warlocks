@@ -9,14 +9,17 @@ Given /^"(.*)" has "(\d)" warlocks$/ do |username, limit|
 end
 
 Given /^a warlock named "(.*)" exists$/ do |warlock_name|
-	warlock = Warlock.new(:name => warlock_name, :user_id => 1)
+	warlock = Warlock.new(:name => warlock_name, :user_id => 1920)
 	warlock.save
 end
 
 Given /^I have selected the warlock "(.*)"$/ do |warlock_name|
-	visits "/player/create"
+	visit "/player/create"
 	fill_in :name, :with => warlock_name
 	click_button "Create"
+	
+	visit "/player/manage"
+	click_link warlock_name
 end
 
 When /^I create a warlock named "(.*)"$/ do |name|

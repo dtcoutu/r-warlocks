@@ -1,3 +1,9 @@
-<h1></h1>
-<p></p>
+<h3>Waiting for Challengers</h3>
+<% if @pending_challenges != nil %>
+<ul>
+	<% for challenge in @pending_challenges %>
+		<li><%= challenge.id %></li>
+	<% end %>
+</ul>
+<% end %>
 <%= link_to 'Create Challenge', :action => 'create' %>
