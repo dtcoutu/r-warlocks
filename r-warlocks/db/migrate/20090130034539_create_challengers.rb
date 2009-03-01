@@ -11,6 +11,8 @@ class CreateChallengers < ActiveRecord::Migration
   end
 
   def self.down
+	remove_index :challengers, :column => [:warlock_id, :match_id]
+  
     drop_table :challengers
   end
 end
