@@ -1,6 +1,6 @@
 <h3>Waiting for Challengers</h3>
 <% if @pending_challenges != nil %>
-<ul>
+<ul class="waitingForChallengers">
 	<% for challenge in @pending_challenges %>
 		<li><%= challenge.id %></li>
 	<% end %>
