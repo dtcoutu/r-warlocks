@@ -1,6 +1,25 @@
 <%= error_messages_for 'match' %>
 
+<% javascript_tag do %>
+function showChallengerInputs(num_challengers) {
+	for (var x=1; x<num_challengers; x++) {
+		element = document.getElementById("match_challengers" + x);
+		element.style.display = "";
+	}
+
+	for (var x=num_challengers; x<5; x++) {
+		element = document.getElementById("match_challengers" + x);
+		element.style.display = "none";
+	}
+}
+<% end %>
+
 <!--[form:match]-->
 <p><label for="match_num_challengers">Number of Challengers</label><br/>
-<%= text_field 'match', 'num_challengers' %></p>
+<%= text_field 'match', 'num_challengers', :on_change => 'showChallengerInputs(this.value)' %></p>
+<p><label for="match_challengers">Enter names for specific warlocks you wish to invite</label><br/>
+<% 1.upto(5) { |i| %>
+  <%= text_field 'invited_challengers', 'warlock_name', "index" => i, :style => 'display:none;' %>
+<% } %>
+</p>
 <!--[eoform:match]-->

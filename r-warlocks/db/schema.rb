@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090130034539) do
+ActiveRecord::Schema.define(:version => 20090301163954) do
+
+  create_table "challenger_invites", :force => true do |t|
+    t.integer  "warlock_id", :null => false
+    t.integer  "match_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "challenger_invites", ["match_id", "warlock_id"], :name => "index_challenger_invites_on_warlock_id_and_match_id", :unique => true
 
   create_table "challengers", :force => true do |t|
     t.integer  "warlock_id", :null => false
