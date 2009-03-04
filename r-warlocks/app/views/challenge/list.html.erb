@@ -2,7 +2,11 @@
 <% if @pending_challenges != nil %>
 <ul class="waitingForChallengers">
 	<% for challenge in @pending_challenges %>
-		<li><%= challenge.id %></li>
+		<li><%= challenge.id %>
+		  <% for challenger_invite in challenge.challenger_invites %>
+			<span class="invite"><%= challenger_invite.warlock.name %></span>
+		  <% end %>
+		</li>
 	<% end %>
 </ul>
 <% end %>
