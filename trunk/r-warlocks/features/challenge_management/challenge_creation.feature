@@ -22,8 +22,11 @@ Feature: Challenge creation
 	Scenario: Create a challenge for 3 warlocks specifying their names
 		Given I am logged in as "testUser"
 		And I have selected the warlock "testWarlock"
+		And a warlock named "otherWarlock1" exists
+		And a warlock named "otherWarlock2" exists
 		And I am on the "/challenge/list" page
 		When I click the "Create Challenge" link
 		And I create a challenge for "3" warlocks specifying the opponents "otherWarlock1, otherWarlock2"
 		Then I will be directed to the "/challenge/list" page
 		And I will see a challenge in the waiting for challenger list
+		And "otherWarlock1, otherWarlock2" will be shown as opponents
