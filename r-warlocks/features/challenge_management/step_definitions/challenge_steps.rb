@@ -1,3 +1,12 @@
+Given /^a challenge for "(\d)" players was created by "(.*)"$/ do |num_challengers, warlock|
+	Given "a warlock named \"#{warlock}\" exists"
+	match = Match.new(:num_challengers => num_challengers)
+	warlock = Warlock.find_by_name(warlock)
+	match.warlocks<< warlock
+	
+	match.save
+end
+
 When /^I create a challenge for "(\d)" warlocks$/ do |num_challengers|
 	fill_in "match[num_challengers]", :with => num_challengers
 	click_button "Create"
