@@ -30,12 +30,14 @@ ActiveRecord::Schema.define(:version => 20090301163954) do
   add_index "challengers", ["match_id", "warlock_id"], :name => "index_challengers_on_warlock_id_and_match_id", :unique => true
 
   create_table "matches", :force => true do |t|
-    t.integer  "num_challengers", :null => false
+    t.integer  "num_challengers",                     :null => false
+    t.string   "status",          :default => "Open", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "matches", ["num_challengers"], :name => "index_matches_on_num_challengers", :unique => true
+  add_index "matches", ["status"], :name => "index_matches_on_status"
 
   create_table "users", :force => true do |t|
     t.string   "username",                 :null => false
