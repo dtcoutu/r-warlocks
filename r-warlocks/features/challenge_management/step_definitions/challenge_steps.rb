@@ -22,6 +22,14 @@ When /^I create a challenge for "(\d)" warlocks specifying the opponents "(.*)"$
 	click_button "Create"
 end
 
+When /^I click on "(.*)" for the match created by "(.*)"$/ do |click_action, warlock_name|
+	# not sure what the within part should be?
+	#warlock = Warlock.find_by_name(warlock_name)
+	#matches = warlock.matches
+	#click_link_within "#challenge_" + matches[0].id.to_s , "Join"
+	click_link "Join"
+end
+
 Then /^I will see a challenge in the waiting for challenger list$/ do
 	response.should have_tag("ul.waitingForChallengers")
 end
@@ -32,4 +40,8 @@ Then /^"(.*)" will be shown as opponents$/ do |challenger_names|
 		with_tag("span.invite", challenger_list[0])
 		with_tag("span.invite", challenger_list[1])
 	end
+end
+
+Then /^I will see a challenge in the ready list$/ do
+	response.should have_tag("ul.readyMatches")
 end

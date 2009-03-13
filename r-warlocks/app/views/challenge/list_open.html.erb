@@ -1,0 +1,10 @@
+<h3>Open Matches</h3>
+<% if @open_matches != nil %>
+<ul class="openMatches">
+	<% for match in @open_matches %>
+		<li><%= match.id %>
+		  - <%= link_to 'Join', :action => 'join', :id => match %>
+		</li>
+	<% end %>
+</ul>
+<% end %>

@@ -10,4 +10,12 @@
 	<% end %>
 </ul>
 <% end %>
+
+<% if @ready_matches != nil %>
+<ul class="readyMatches">
+  <% for match in @ready_matches %>
+    <li><%= match.id %></li>
+  <% end %>
+</ul>
+<% end %>
 <%= link_to 'Create Challenge', :action => 'create' %>
