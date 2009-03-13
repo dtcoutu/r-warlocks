@@ -1,4 +1,4 @@
-Given /^a challenge for "(\d)" players was created by "(.*)"$/ do |num_challengers, warlock|
+Given /^a challenge was created by "(.*)" for "(\d)" players$/ do |warlock, num_challengers|
 	Given "a warlock named \"#{warlock}\" exists"
 	match = Match.new(:num_challengers => num_challengers)
 	warlock = Warlock.find_by_name(warlock)

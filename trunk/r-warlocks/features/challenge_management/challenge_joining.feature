@@ -5,7 +5,7 @@ Feature: Joining an existing challenge
 	
 	Scenario: Joining a match with only one open place left.
 		Given a warlock named "otherWarlock" exists
-		And a challenge for "2" players was created by "otherWarlock"
+		And a challenge was created by "otherWarlock" for "2" players
 		And I am logged in as "testUser"
 		And I have selected the warlock "testWarlock"
 		And I am on the "/challenge/list_open" page
@@ -15,7 +15,7 @@ Feature: Joining an existing challenge
 	
 	Scenario: Joining a match for which there are other open spots
 		Given a warlock named "otherWarlock" exists
-		And a challenge for "3" players was created by "otherWarlock"
+		And a challenge was created by "otherWarlock" for "3" players
 		And I am logged in as "testUser"
 		And I have selected the warlock "testWarlock"
 		And I am on the "/challenge/list_open" page
