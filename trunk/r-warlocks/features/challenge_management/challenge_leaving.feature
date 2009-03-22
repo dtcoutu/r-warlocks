@@ -9,7 +9,7 @@ Feature: Leaving a challenge
 		And a challenge was created by "testWarlock" for "2" players
 		And I am on the "/challenge/list" page
 		When I click on "Leave" for the challenge
-		Then the challenge should be removed from the game
+		Then the warlock "testWarlock" should see "0" open challenges
 	
 	Scenario: Leaving a challenge with invited warlocks when I'm the only warlock who has accepted the challenge
 		Given I am logged in as "testUser"
@@ -17,15 +17,14 @@ Feature: Leaving a challenge
 		And a challenge was created by "testWarlock" for "2" players with "otherWarlock1" invited
 		And I am on the "/challenge/list" page
 		When I click on "Leave" for the challenge
-		Then the challenge should be removed from the game
+		Then the warlock "testWarlock" should see "0" open challenges
 		
 	Scenario: The only joined warlock leaves a challenge that I have been invited to
 		Given I am logged in as "testUser"
 		And I have selected the warlock "testWarlock"
 		And a challenge was created by "otherWarlock1" for "2" players with "testWarlock" invited
-		And "otherWarlock1" leaves the challenge
-		When I visit the "/challenge/list" page
-		Then I will not see the challenge
+		When "otherWarlock1" leaves the challenge they created
+		Then the warlock "testWarlock" should see "0" open challenges
 	
 	Scenario: Leaving a challenge when other warlocks have also accepted the challenge
 		Given I am logged in as "testUser"
@@ -33,6 +32,7 @@ Feature: Leaving a challenge
 		And a challenge was created by "testWarlock" for "3" players with "otherWarlock1" joined
 		And I am on the "/challenge/list" page
 		When I click on "Leave" for the challenge
-		Then the challenge should be still exist
+		Then the warlock "testWarlock" should see "1" open challenges
+		And the warlock "otherWarlock1" should see "1" pending challenges
 		
 	
