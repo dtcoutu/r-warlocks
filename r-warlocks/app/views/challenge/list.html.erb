@@ -2,7 +2,7 @@
 <% if @pending_challenges != nil %>
 <ul class="waitingForChallengers">
 	<% for challenge in @pending_challenges %>
-		<li><%= challenge.id %>
+		<li><%= challenge.id %> - <%= link_to 'Leave', :action => 'leave', :id => challenge %>
 		  <% for challenger_invite in challenge.challenger_invites %>
 			<span class="invite"><%= challenger_invite.warlock.name %></span>
 		  <% end %>
