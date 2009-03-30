@@ -54,5 +54,8 @@ class ChallengeController < ApplicationController
 
 	@open_matches = Match.find_open_for_warlock(@warlock)
   end
+  
+  def show
+  end
 
 end
