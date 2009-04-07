@@ -8,6 +8,7 @@ Feature: Submitting gestures
 		And I have selected the warlock "testWarlock"
 		And I am in a challenge with "otherWarlock" that is in the started state
 		#And all warlocks are ready for orders - don't know how I'd represent - other than I haven't given them any gestures
+		# /challenge/show - implies I'm viewing the challenge not editing...
 		And I am on the "/challenge/show" page
 		When I submit "P" and "D" for gestures
 		Then I will be directed to the "/challenge/list" page

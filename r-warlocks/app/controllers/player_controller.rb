@@ -26,7 +26,7 @@ class PlayerController < ApplicationController
 	
 	if (@warlock != nil)
 	  session[:warlock] = @warlock
-	  redirect_to :controller => 'challenge', :action => 'list'
+	  redirect_to :controller => 'game', :action => 'list'
 	else
 	  render :action => 'manage'
 	end

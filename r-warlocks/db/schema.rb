@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090301163954) do
+ActiveRecord::Schema.define(:version => 20090403101808) do
 
   create_table "challenger_invites", :force => true do |t|
     t.integer  "warlock_id", :null => false
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(:version => 20090301163954) do
 
   add_index "challengers", ["match_id", "warlock_id"], :name => "index_challengers_on_warlock_id_and_match_id", :unique => true
 
+  create_table "gestures", :force => true do |t|
+    t.integer  "order_id",   :null => false
+    t.string   "gesture",    :null => false
+    t.string   "spell"
+    t.string   "target"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "matches", :force => true do |t|
     t.integer  "num_challengers",                     :null => false
     t.string   "status",          :default => "Open", :null => false
@@ -38,6 +47,26 @@ ActiveRecord::Schema.define(:version => 20090301163954) do
 
   add_index "matches", ["num_challengers"], :name => "index_matches_on_num_challengers", :unique => true
   add_index "matches", ["status"], :name => "index_matches_on_status"
+
+  create_table "order_makers", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "order_maker_id", :null => false
+    t.integer  "turn_id",        :null => false
+    t.string   "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "turns", :force => true do |t|
+    t.integer  "match_id",   :null => false
+    t.integer  "turn_num",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username",                 :null => false
