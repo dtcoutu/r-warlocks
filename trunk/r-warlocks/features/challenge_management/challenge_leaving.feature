@@ -7,7 +7,7 @@ Feature: Leaving a challenge
 		Given I am logged in as "testUser"
 		And I have selected the warlock "testWarlock"
 		And a challenge was created by "testWarlock" for "2" players
-		And I am on the "/challenge/list" page
+		And I am on the "/game/list" page
 		When I click on "Leave" for the challenge
 		Then the warlock "testWarlock" should see "0" open challenges
 	
@@ -15,7 +15,7 @@ Feature: Leaving a challenge
 		Given I am logged in as "testUser"
 		And I have selected the warlock "testWarlock"
 		And a challenge was created by "testWarlock" for "2" players with "otherWarlock1" invited
-		And I am on the "/challenge/list" page
+		And I am on the "/game/list" page
 		When I click on "Leave" for the challenge
 		Then the warlock "testWarlock" should see "0" open challenges
 		
@@ -30,7 +30,7 @@ Feature: Leaving a challenge
 		Given I am logged in as "testUser"
 		And I have selected the warlock "testWarlock"
 		And a challenge was created by "testWarlock" for "3" players with "otherWarlock1" joined
-		And I am on the "/challenge/list" page
+		And I am on the "/game/list" page
 		When I click on "Leave" for the challenge
 		Then the warlock "testWarlock" should see "1" open challenges
 		And the warlock "otherWarlock1" should see "1" pending challenges
