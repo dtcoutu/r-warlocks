@@ -3,6 +3,10 @@ Given /^I am on the "(.*)" page$/ do |page|
 	visit page
 end
 
+Given /^user is on the "(.*)" page$/ do |page|
+	visit page
+end
+
 When /^I click the "(.*)" link$/ do |link|
 	click_link link
 end

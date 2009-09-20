@@ -1,0 +1,55 @@
+<%= error_messages_for 'order' %>
+
+<!--[form:order]-->
+<table>
+  <thead>
+    <tr>
+      <th>Hand</th>
+      <th>Gesture</th>
+      <th>Spell</th>
+      <th>Target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><label for="order_left_gesture">Left</label></td>
+      <td><%= collection_select(:order, :left_gesture, @available_gestures, :symbol, :symbol) %></td>
+      <td><%= collection_select(:order, :left_spell_id, @available_spells, :id, :name, { :include_blank => true }) %></td>
+      <td>
+        <select id="order_left_target_id" name="order[left_target_id]">
+          <option value=""></option>
+          <% for target in @available_targets %>
+            <option value="<%= target.id %>">
+              <%= target.warlock.name %>
+              <% if (target == @current_challenger.default_target) %>
+                (default)
+              <% end %>
+            </option>
+          <% end %>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="order_right_gesture">Right</label></td>
+      <td><%= collection_select(:order, :right_gesture, @available_gestures, :symbol, :symbol) %></td>
+      <td><%= collection_select(:order, :right_spell_id, @available_spells, :id, :name, { :include_blank => true }) %></td>
+      <td>
+        <select id="order_right_target_id" name="order[right_target_id]">
+          <option value=""></option>
+          <% for target in @available_targets %>
+            <option value="<%= target.id %>">
+              <%= target.warlock.name %>
+              <% if (target == @current_challenger.default_target) %>
+                (default)
+              <% end %>
+            </option>
+          <% end %>
+        </select>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><label for="order_message">Message</label><br/>
+<%= text_field 'order', 'message' %></p>
+<!--[eoform:order]-->

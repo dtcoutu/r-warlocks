@@ -1,4 +1,4 @@
 <h1>Warlocks for <%= @user.username %></h1>
-<% for warlock in @warlocks %>
+<% @warlocks.each do |warlock| %>
 	<p><%= link_to warlock.name, :action => 'select', :id => warlock %></p>
 <% end %>
