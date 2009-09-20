@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20090403101808) do
     t.datetime "updated_at"
   end
 
-  add_index "challenger_invites", ["match_id", "warlock_id"], :name => "index_challenger_invites_on_warlock_id_and_match_id", :unique => true
+  add_index "challenger_invites", ["warlock_id", "match_id"], :name => "index_challenger_invites_on_warlock_id_and_match_id", :unique => true
 
   create_table "challengers", :force => true do |t|
     t.integer  "warlock_id", :null => false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20090403101808) do
     t.datetime "updated_at"
   end
 
-  add_index "challengers", ["match_id", "warlock_id"], :name => "index_challengers_on_warlock_id_and_match_id", :unique => true
+  add_index "challengers", ["warlock_id", "match_id"], :name => "index_challengers_on_warlock_id_and_match_id", :unique => true
 
   create_table "gestures", :force => true do |t|
     t.integer  "order_id",   :null => false

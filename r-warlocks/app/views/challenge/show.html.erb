@@ -1,0 +1,9 @@
+<h1></h1>
+<p></p>
+
+<%= error_messages_for 'show' %>
+
+<% form_tag :action => 'show' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Submit" %>
+<% end %>
