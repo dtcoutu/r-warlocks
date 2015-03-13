@@ -1,0 +1,3 @@
+For the most part this is really just an attempt to learn Ruby on Rails.  If things go well (and the Warlocks community likes the work) I'd love for it to serve as a replacement.  So to that end I hope to incorporate additional features that players currently have to work around in the current incarnation.  Ultimately I have no delusions of this actually reaching completion since it is, in the end, an learning of Ruby.
+
+The current game of warlocks is hosted at http://games.ravenblack.net/.
